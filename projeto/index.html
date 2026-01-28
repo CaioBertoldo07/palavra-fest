@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavra Fest - Relíquias Sagradas: Egito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --areia: #D4C5A9;
+            --dourado: #B8935E;
+            --preto: #1A1A1A;
+            --azul-profundo: #1B3A52;
+            --roxo-escuro: #3E2847;
+            --bege-claro: #F5EFE3;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--preto);
+            color: var(--bege-claro);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid var(--dourado);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--areia);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            font-family: 'Arial', sans-serif;
+        }
+
+        nav a:hover {
+            color: var(--dourado);
+        }
+
+        /* Seções */
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 3rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Abertura */
+        #abertura {
+            background: linear-gradient(135deg, var(--preto) 0%, var(--azul-profundo) 100%);
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            color: var(--dourado);
+            text-shadow: 0 4px 20px rgba(184, 147, 94, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 2.2rem;
+            color: var(--areia);
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--bege-claro);
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        /* Títulos de seção */
+        h2 {
+            font-size: 3.5rem;
+            color: var(--dourado);
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: 3px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: var(--dourado);
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: var(--dourado);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Textos */
+        p {
+            font-size: 1.3rem;
+            color: var(--bege-claro);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .text-center {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Cards de conteúdo */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .content-card {
+            background: rgba(212, 197, 169, 0.05);
+            border: 1px solid var(--dourado);
+            padding: 2.5rem;
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(184, 147, 94, 0.2);
+        }
+
+        .content-card h3 {
+            font-size: 1.8rem;
+        }
+
+        .content-card p {
+            font-size: 1.2rem;
+        }
+
+        /* Personagens */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .character-card {
+            background: linear-gradient(135deg, rgba(27, 58, 82, 0.3), rgba(26, 26, 26, 0.5));
+            border: 2px solid var(--dourado);
+            padding: 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .character-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .character-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .character-header {
+            padding: 2rem 2.5rem 1rem 2.5rem;
+        }
+
+        .character-name {
+            font-size: 2rem;
+            color: var(--dourado);
+            margin-bottom: 0.5rem;
+        }
+
+        .character-role {
+            font-size: 1.2rem;
+            color: var(--areia);
+            font-style: italic;
+        }
+
+        .character-info {
+            padding: 0 2.5rem 2.5rem 2.5rem;
+        }
+
+        .info-label {
+            color: var(--dourado);
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            color: var(--bege-claro);
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        /* Antagonistas */
+        .antagonist-card {
+            background: linear-gradient(135deg, rgba(62, 40, 71, 0.4), rgba(26, 26, 26, 0.6));
+            border: 2px solid var(--roxo-escuro);
+        }
+
+        .antagonist-card .character-name {
+            color: #000;
+        }
+
+        .antagonist-card .info-label {
+            color: #000;
+        }
+
+        /* Cenários */
+        .scenario-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .scenario-card {
+            background: rgba(27, 58, 82, 0.2);
+            border: 1px solid var(--dourado);
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .scenario-card p {
+            font-size: 1.3rem;
+        }
+
+        .scenario-title {
+            font-size: 2.2rem;
+            color: var(--dourado);
+            margin-bottom: 1rem;
+        }
+
+        /* Cenários com imagem */
+        .scenario-card-full {
+            background: rgba(27, 58, 82, 0.2);
+            border: 2px solid var(--dourado);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .scenario-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .scenario-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .scenario-content {
+            padding: 2.5rem;
+        }
+
+        .scenario-content p {
+            font-size: 1.3rem;
+        }
+
+        /* Lista estilizada */
+        ul.styled-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        ul.styled-list li {
+            color: var(--bege-claro);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        ul.styled-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--dourado);
+            font-size: 1.5rem;
+        }
+
+        /* Destaque */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--azul-profundo), var(--roxo-escuro));
+            border-left: 4px solid var(--dourado);
+            padding: 2.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-text {
+            font-size: 1.5rem;
+            color: var(--bege-claro);
+            text-align: center;
+            font-style: italic;
+            line-height: 2;
+        }
+
+        /* Seção com background */
+        .bg-section {
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--preto) 100%);
+        }
+
+        .alt-bg {
+            background: linear-gradient(135deg, var(--preto) 0%, var(--roxo-escuro) 50%, var(--preto) 100%);
+        }
+
+        /* Rodapé */
+        footer {
+            background: var(--preto);
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid var(--dourado);
+        }
+
+        footer p {
+            color: var(--areia);
+            font-size: 1.1rem;
+            margin: 0 auto;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 2.8rem;
+            }
+            
+            .character-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            h3 {
+                font-size: 1.6rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            nav {
+                padding: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+            }
+            
+            .character-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .character-image {
+                height: 280px;
+            }
+            
+            .scenario-image {
+                height: 300px;
+            }
+            
+            section {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#abertura">Início</a></li>
+            <li><a href="#desafio">O Desafio</a></li>
+            <li><a href="#conceito">Conceito</a></li>
+            <li><a href="#narrativa">Narrativa</a></li>
+            <li><a href="#protagonistas">Protagonistas</a></li>
+            <li><a href="#antagonistas">Antagonistas</a></li>
+            <li><a href="#conflito">Conflito</a></li>
+            <li><a href="#cenarios">Cenários</a></li>
+            <li><a href="#dinamica">Dinâmica</a></li>
+            <li><a href="#grupos">Grupos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Abertura -->
+    <section id="abertura">
+        <div class="container">
+            <h1 class="hero-title">PALAVRA FEST</h1>
+            <p class="hero-subtitle">Relíquias Sagradas — Egito</p>
+            <p class="hero-tagline">Uma jornada espiritual através da Palavra de Deus, ambientada em um Egito simbólico
+                onde relíquias sagradas aguardam para serem recuperadas</p>
+        </div>
+    </section>
+
+    <!-- O Desafio -->
+    <section id="desafio" class="bg-section">
+        <div class="container">
+            <h2>O Desafio</h2>
+            <p class="text-center">O Palavra Fest é um desafio de três semanas que convida a igreja a uma jornada
+                transformadora através da leitura, meditação e memorização bíblica.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>3 Semanas</h3>
+                    <p>Um período intenso de imersão na Palavra de Deus</p>
+                </div>
+                <div class="content-card">
+                    <h3>Leitura + Meditação + Memorização</h3>
+                    <p>Aproximadamente 60 versículos que transformarão o coração</p>
+                </div>
+                <div class="content-card">
+                    <h3>Processo Vivo e Memorável</h3>
+                    <p>A importância de tornar o discipulado uma experiência marcante</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conceito -->
+    <section id="conceito">
+        <div class="container">
+            <h2>O Conceito</h2>
+            <p class="text-center">Relíquias Sagradas representa a jornada espiritual de uma família comum que descobre
+                que a verdadeira relíquia não é o objeto, mas a Palavra guardada no coração.</p>
+            <div class="highlight-box">
+                <p class="highlight-text">A Palavra de Deus fragmentada em relíquias (versículos) precisa ser
+                    recuperada. Cada relíquia representa uma verdade espiritual, um poder transformador que confronta
+                    fraquezas e fortalece a fé.</p>
+            </div>
+            <ul class="styled-list">
+                <li>Jornada espiritual através de um Egito simbólico</li>
+                <li>Palavra como centro absoluto da narrativa</li>
+                <li>Cada fraqueza confrontada com verdades bíblicas</li>
+                <li>Memorização como ato de guardar tesouros eternos</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Narrativa -->
+    <section id="narrativa" class="bg-section">
+        <div class="container">
+            <h2>Narrativa Geral</h2>
+            <div class="scenario-card">
+                <h3 class="scenario-title">Começo</h3>
+                <p>Uma família comum encontra um artefato antigo dentro da igreja: um Mapa das Relíquias Sagradas. Ao
+                    tocar no mapa, são transportados para um Egito espiritual, onde descobrem que a Palavra de Deus foi
+                    fragmentada em relíquias (versículos).</p>
+                <p><strong>Para voltar para casa, precisam recuperar todas as relíquias em 3 semanas.</strong></p>
+            </div>
+
+            <div class="scenario-card" style="margin-top: 2rem;">
+                <h3 class="scenario-title">Meio</h3>
+                <p>Cada semana representa um nível da jornada:</p>
+                <ul class="styled-list">
+                    <li>Um novo ambiente do Egito</li>
+                    <li>Uma nova fraqueza sendo confrontada</li>
+                    <li>Antagonistas tentando impedir a meditação, leitura e memorização</li>
+                </ul>
+            </div>
+
+            <div class="scenario-card" style="margin-top: 2rem;">
+                <h3 class="scenario-title">Fim</h3>
+                <p>Na última semana, acontece o confronto final no Templo das Decisões. As relíquias são reunidas e
+                    formam o Livro Vivo da Palavra.</p>
+                <p><strong>A família retorna transformada, entendendo que: "A verdadeira relíquia não é o objeto e sim a
+                        Palavra guardada no coração".</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protagonistas -->
+    <section id="protagonistas">
+        <div class="container">
+            <h2>Personagens — Protagonistas</h2>
+            <div class="character-grid">
+                <!-- Pai -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="assets/characters/pai.png" alt="O Pai - Líder Cansado">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">O Pai</h3>
+                        <p class="character-role">O Líder Cansado</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Fraqueza</p>
+                        <p class="info-text">Procrastinação espiritual</p>
+
+                        <p class="info-label">Personalidade</p>
+                        <p class="info-text">Responsável, mas sempre "sem tempo"</p>
+
+                        <p class="info-label">Em Cena</p>
+                        <p class="info-text">Sempre demora a agir. Fica paralizado quando o vilão avança.</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Movimentos lentos no início. Ganha firmeza quando declara a Palavra.</p>
+
+                        <p class="info-label">Arma Simbólica</p>
+                        <p class="info-text">Bastão / cajado simples</p>
+
+                        <p class="info-label">Versículo Chave</p>
+                        <p class="info-text">Josué 1:9 - "Não fui eu que lhe ordenei? Seja forte e corajoso! Não se
+                            apavore, nem se desanime, pois o Senhor, o seu Deus, estará com você por onde você andar."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mãe -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="assets/characters/mae.png" alt="A Mãe - Controladora">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">A Mãe</h3>
+                        <p class="character-role">A Controladora</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Fraqueza</p>
+                        <p class="info-text">Orgulho espiritual</p>
+
+                        <p class="info-label">Personalidade</p>
+                        <p class="info-text">Organizada, mas quer fazer tudo sozinha</p>
+
+                        <p class="info-label">Em Cena</p>
+                        <p class="info-text">Enfrenta tudo sozinha. Afasta a família sem perceber.</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Começa forte. Perde força ao lutar sozinha. Se fortalece quando luta em
+                            equipe.</p>
+
+                        <p class="info-label">Arma Simbólica</p>
+                        <p class="info-text">Pergaminho / adaga cenográfica</p>
+
+                        <p class="info-label">Versículo Chave</p>
+                        <p class="info-text">Provérbios 3:5-6 - "Confie no Senhor de todo o seu coração e não se apóie
+                            em seu próprio entendimento; reconheça o Senhor em todos os seus caminhos, e ele endireitará
+                            as suas veredas."</p>
+                    </div>
+                </div>
+
+                <!-- Filho -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="assets/characters/filho.png" alt="O Filho - Distraído">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">O Filho</h3>
+                        <p class="character-role">O Distraído</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Fraqueza</p>
+                        <p class="info-text">Preguiça / falta de foco</p>
+
+                        <p class="info-label">Personalidade</p>
+                        <p class="info-text">Curioso, mas disperso</p>
+
+                        <p class="info-label">Em Cena</p>
+                        <p class="info-text">Olha para tudo menos para o perigo. É facilmente cercado.</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Movimentos rápidos, porém desordenados.</p>
+
+                        <p class="info-label">Arma Simbólica</p>
+                        <p class="info-text">Tocha falsa</p>
+
+                        <p class="info-label">Versículo Chave</p>
+                        <p class="info-text">Salmos 119:37 - "Desvia os meus olhos das coisas inúteis, faz-me viver nos
+                            caminhos que traçaste."</p>
+                    </div>
+                </div>
+
+                <!-- Filha -->
+                <div class="character-card">
+                    <div class="character-image">
+                        <img src="assets/characters/filha.png" alt="A Filha - Observadora Temerosa">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">A Filha</h3>
+                        <p class="character-role">A Observadora Temerosa</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Fraqueza</p>
+                        <p class="info-text">Medo / insegurança</p>
+
+                        <p class="info-label">Personalidade</p>
+                        <p class="info-text">Observa tudo, entende a verdade antes, mas hesita</p>
+
+                        <p class="info-label">Em Cena</p>
+                        <p class="info-text">Recua quando os vilões avançam. É a primeira a perceber as armadilhas.</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Movimentos defensivos. Cresce muito quando declara a Palavra.</p>
+
+                        <p class="info-label">Arma Simbólica</p>
+                        <p class="info-text">Colar / relíquia da palavra</p>
+
+                        <p class="info-label">Versículo Chave</p>
+                        <p class="info-text">2 Timóteo 1:7 - "Pois Deus não nos deu espírito de covardia, mas de poder,
+                            de amor e de equilíbrio."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Antagonistas -->
+    <section id="antagonistas" class="alt-bg">
+        <div class="container">
+            <h2>Personagens — Antagonistas</h2>
+            <div class="character-grid">
+                <!-- Faraó -->
+                <div class="character-card antagonist-card">
+                    <div class="character-image">
+                        <img src="assets/characters/farao.png" alt="Faraó - Senhor do Controle">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">Faraó</h3>
+                        <p class="character-role">O Senhor do Controle</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Representa</p>
+                        <p class="info-text">O sistema que oprime, domina e distrai</p>
+
+                        <p class="info-label">Visual</p>
+                        <p class="info-text">Dourado + preto</p>
+
+                        <p class="info-label">Em Cena</p>
+                        <p class="info-text">Não luta no começo. Comanda tudo com gestos.</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Só entra em combate na última semana. Cada versículo enfraquece seus
+                            movimentos.</p>
+
+                        <p class="info-label">Efeito Cênico</p>
+                        <p class="info-text">Sons graves, luz baixa quando ele aparece</p>
+                    </div>
+                </div>
+
+                <!-- Sacerdotes -->
+                <div class="character-card antagonist-card">
+                    <div class="character-image">
+                        <img src="assets/characters/sacerdotes.png" alt="Sacerdotes do Engano">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">Sacerdotes do Engano</h3>
+                        <p class="character-role">Agentes da Confusão</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Função</p>
+                        <p class="info-text">Cercar, separar a família, criar confusão</p>
+
+                        <p class="info-label">Roupa</p>
+                        <p class="info-text">Túnica longa escura, capuz, cinto de corda ou tecido cru, mangas largas</p>
+
+                        <p class="info-label">Movimento</p>
+                        <p class="info-text">Lento e sincronizado, gestos repetitivos (quase dança)</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Empurrões simbólicos, cercos coreografados</p>
+
+                        <p class="info-label">Quando Perdem</p>
+                        <p class="info-text">Caem de joelhos, fogem quando a Palavra é proclamada</p>
+                    </div>
+                </div>
+
+                <!-- Magos -->
+                <div class="character-card antagonist-card">
+                    <div class="character-image">
+                        <img src="assets/characters/magos.png" alt="Magos da Ilusão">
+                    </div>
+                    <div class="character-header">
+                        <h3 class="character-name">Magos da Ilusão</h3>
+                        <p class="character-role">Mestres do Engano</p>
+                    </div>
+                    <div class="character-info">
+                        <p class="info-label">Função</p>
+                        <p class="info-text">Criar falsas soluções, distrações visuais</p>
+
+                        <p class="info-label">Roupa</p>
+                        <p class="info-text">Túnica média, tecidos leves</p>
+
+                        <p class="info-label">Efeitos</p>
+                        <p class="info-text">Efeitos simples: pó colorido, tecidos, fumaça leve</p>
+
+                        <p class="info-label">Luta</p>
+                        <p class="info-text">Nunca enfrentam diretamente, usam "truques"</p>
+
+                        <p class="info-label">Quando Perdem</p>
+                        <p class="info-text">Ficam confusos, erram movimentos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conflito e Ação -->
+    <section id="conflito" class="bg-section">
+        <div class="container">
+            <h2>Conflito e Ação no Palco</h2>
+            <p class="text-center">O confronto entre luz e trevas acontece através de lutas coreografadas que
+                representam batalhas espirituais reais.</p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Lutas Coreografadas</h3>
+                    <p>Movimentos planejados que representam lutas espirituais. Cada personagem luta de acordo com sua
+                        fraqueza e transformação.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>A Palavra como Virada</h3>
+                    <p>O momento decisivo de cada batalha acontece quando a Palavra é declarada. A verdade bíblica
+                        transforma o cenário do combate.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Antagonistas Enfraquecidos</h3>
+                    <p>Quando a Palavra é proclamada, os antagonistas perdem força. Seus movimentos ficam lentos,
+                        confusos, até que fogem ou caem.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>União da Família</h3>
+                    <p>A vitória final só acontece quando a família luta unida. Sozinhos são fracos, juntos são
+                        invencíveis pela Palavra.</p>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <p class="highlight-text">"A luta não é contra carne e sangue, mas contra as forças espirituais do mal.
+                    A Palavra de Deus é a espada que vence toda batalha."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cenários -->
+    <section id="cenarios">
+        <div class="container">
+            <h2>Cenários</h2>
+            <p class="text-center">Cada ambiente do Egito espiritual representa uma etapa da jornada e um desafio
+                específico.</p>
+
+            <div class="scenario-grid">
+                <div class="scenario-card-full">
+                    <div class="scenario-image">
+                        <img src="assets/backgrounds/deserto.png" alt="Deserto das Provações">
+                    </div>
+                    <div class="scenario-content">
+                        <h3 class="scenario-title">Deserto das Provações</h3>
+                        <p>O primeiro ambiente. Vasto, árido, solitário. Representa o início da jornada, o lugar onde as
+                            fraquezas começam a ser reveladas.</p>
+                        <p><strong>Elementos:</strong> Areia, dunas, céu aberto, sensação de imensidão</p>
+                    </div>
+                </div>
+
+                <div class="scenario-card-full">
+                    <div class="scenario-image">
+                        <img src="assets/backgrounds/ruinasComObeliscos.png" alt="Ruínas e Obeliscos">
+                    </div>
+                    <div class="scenario-content">
+                        <h3 class="scenario-title">Ruínas e Obeliscos</h3>
+                        <p>Estruturas antigas com versículos gravados. Lugares de memória e descoberta das relíquias
+                            sagradas.</p>
+                        <p><strong>Elementos:</strong> Obeliscos, colunas quebradas, inscrições bíblicas, pedras antigas
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scenario-card-full">
+                    <div class="scenario-image">
+                        <img src="assets/backgrounds/temploDosSacerdotes.png" alt="Templo dos Sacerdotes">
+                    </div>
+                    <div class="scenario-content">
+                        <h3 class="scenario-title">Templo dos Sacerdotes</h3>
+                        <p>Local onde os Sacerdotes do Engano tentam confundir e separar a família. Ambiente fechado,
+                            opressivo.</p>
+                        <p><strong>Elementos:</strong> Colunas, sombras, altares falsos, sensação de claustrofobia</p>
+                    </div>
+                </div>
+
+                <div class="scenario-card-full">
+                    <div class="scenario-image">
+                        <img src="assets/backgrounds/salaoDosMagos.png" alt="Salão das Ilusões">
+                    </div>
+                    <div class="scenario-content">
+                        <h3 class="scenario-title">Salão das Ilusões</h3>
+                        <p>Domínio dos Magos. Lugar de truques visuais, falsas promessas e distrações elaboradas.</p>
+                        <p><strong>Elementos:</strong> Espelhos, tecidos, fumaça, cores vibrantes que enganam</p>
+                    </div>
+                </div>
+
+                <div class="scenario-card-full">
+                    <div class="scenario-image">
+                        <img src="assets/backgrounds/palacioFarao.png" alt="Palácio do Faraó">
+                    </div>
+                    <div class="scenario-content">
+                        <h3 class="scenario-title">Palácio do Faraó</h3>
+                        <p>O centro do poder do inimigo. Lugar do confronto final. Grandioso, intimidador, mas que será
+                            conquistado pela Palavra.</p>
+                        <p><strong>Elementos:</strong> Trono, dourado e preto, arquitetura imponente, hieróglifos</p>
+                    </div>
+                </div>
+
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <p class="highlight-text">Elementos visuais: Pirâmides, obeliscos com versículos, pergaminhos antigos,
+                    estátuas egípcias rachadas, areia, tochas falsas, tecidos rústicos. Luz quente (amarela/laranja).
+                    Sons de vento, passos na areia, tambores tribais. Estética de aventura, exploração, mistério.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dinâmica do Desafio -->
+    <section id="dinamica" class="bg-section">
+        <div class="container">
+            <h2>Dinâmica do Desafio</h2>
+
+            <div class="scenario-card">
+                <h3 class="scenario-title">Estrutura das 3 Semanas</h3>
+                <p>Cada semana representa um nível da jornada com progressão narrativa e espiritual clara.</p>
+            </div>
+
+            <div class="content-grid" style="margin-top: 3rem;">
+                <div class="content-card">
+                    <h3>Semana 1 — Fundamentos</h3>
+                    <p><strong>Livro:</strong> Provérbios</p>
+                    <p><strong>Foco:</strong> Sabedoria, fundação espiritual</p>
+                    <p><strong>Ambiente:</strong> Deserto das Provações</p>
+                    <p><strong>Relíquias:</strong> Aproximadamente 20 versículos</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Semana 2 — Transformação</h3>
+                    <p><strong>Livro:</strong> Romanos</p>
+                    <p><strong>Foco:</strong> Identidade em Cristo, renovação da mente</p>
+                    <p><strong>Ambiente:</strong> Templo e Salão das Ilusões</p>
+                    <p><strong>Relíquias:</strong> Aproximadamente 20 versículos</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Semana 3 — Vida Prática</h3>
+                    <p><strong>Livros:</strong> Tiago e Efésios</p>
+                    <p><strong>Foco:</strong> Aplicação prática da fé</p>
+                    <p><strong>Ambiente:</strong> Palácio do Faraó / Templo das Decisões</p>
+                    <p><strong>Relíquias:</strong> Aproximadamente 20 versículos</p>
+                </div>
+            </div>
+
+            <div class="scenario-card" style="margin-top: 3rem;">
+                <h3 class="scenario-title">Total de Versículos</h3>
+                <p>Aproximadamente 60 versículos ao longo das três semanas — um tesouro eterno guardado no coração.</p>
+                <p>Cada versículo memorizado é uma relíquia recuperada, uma vitória conquistada, uma transformação
+                    realizada.</p>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <p class="highlight-text">A progressão narrativa acontece simultaneamente ao crescimento espiritual. À
+                    medida que mais versículos são memorizados, mais relíquias são recuperadas e mais próxima a família
+                    fica da vitória final.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grupos de Amigos -->
+    <section id="grupos">
+        <div class="container">
+            <h2>Grupos de Amigos (G.A)</h2>
+            <p class="text-center">Cada grupo de amigos recebe um identificador visual que os acompanha durante toda a
+                jornada.</p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Escaravelho</h3>
+                    <p>Com espaço em volta para as fotos dos membros do grupo. Símbolo de renovação e transformação.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Pergaminho</h3>
+                    <p>Com as fotos dos membros. Representa a Palavra sendo escrita nos corações.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Amuleto Egípcio</h3>
+                    <p>Símbolo único para cada grupo, representando identidade e pertencimento.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Fragmento de Obelisco</h3>
+                    <p>Pedaço de uma estrutura maior, mostrando que cada grupo é parte essencial do todo.</p>
+                </div>
+            </div>
+
+            <div class="scenario-card" style="margin-top: 3rem;">
+                <h3 class="scenario-title">Progresso Simbólico</h3>
+                <p>Ao longo das semanas, os identificadores visuais dos grupos subirão no palco da igreja durante o culto, assim vemos o progresso dos grupos da igreja semanalmente.</p>
+                <p>Isso cria engajamento visual e senso de conquista coletiva — todos podem ver o progresso de todos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Encerramento -->
+    <section id="encerramento" class="alt-bg">
+        <div class="container">
+            <h2>Síntese da Proposta</h2>
+
+            <div class="highlight-box">
+                <p class="highlight-text" style="font-size: 1.8rem; margin-bottom: 2rem;">
+                    "Não é teatro. É discipulado vivido através da Palavra."
+                </p>
+            </div>
+
+            <p class="text-center" style="max-width: 900px; font-size: 1.4rem; margin-bottom: 2rem;">
+                O Palavra Fest — Relíquias Sagradas: Egito é uma jornada de três semanas que transforma a leitura
+                bíblica em uma experiência memorável, imersiva e profundamente espiritual.
+            </p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Narrativa Cinematográfica</h3>
+                    <p>Uma história envolvente que mantém a igreja engajada do início ao fim, com personagens, conflitos
+                        e vitórias claras.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Verdade Bíblica</h3>
+                    <p>Cada elemento aponta para a centralidade da Palavra. Nada distrai do propósito: guardar a Palavra
+                        no coração.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Experiência Comunitária</h3>
+                    <p>Grupos de amigos caminham juntos, famílias se fortalecem, a igreja se une em torno de um objetivo
+                        comum.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Transformação Real</h3>
+                    <p>Ao final, não é apenas uma memória bonita — é uma vida transformada pela Palavra viva guardada no
+                        coração.</p>
+                </div>
+            </div>
+
+            <div class="scenario-card" style="margin-top: 3rem; text-align: center;">
+                <h3 class="scenario-title">A Verdadeira Relíquia</h3>
+                <p style="font-size: 1.5rem; line-height: 1.9;">
+                    Não é o objeto.<br>
+                    Não é o mapa.<br>
+                    Não é o cenário.<br>
+                    <strong style="color: var(--dourado); font-size: 1.7rem;">É a Palavra de Deus guardada no
+                        coração.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Palavra Fest — Relíquias Sagradas: Egito</p>
+        <p style="margin-top: 1rem; font-size: 1rem;">Apresentação conceitual do projeto</p>
+    </footer>
+    
+    <script>
+        // Animação suave ao scroll
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Destaque do menu ao scroll
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.style.color = 'var(--areia)';
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.style.color = 'var(--dourado)';
+                    }
+                });
+            });
+
+            // Animação suave para imagens ao carregar
+            document.addEventListener('DOMContentLoaded', () => {
+                const images = document.querySelectorAll('img');
+
+                images.forEach(img => {
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.5s ease';
+
+                    img.addEventListener('load', () => {
+                        img.style.opacity = '1';
+                    });
+
+                    // Se a imagem já estiver carregada
+                    if (img.complete) {
+                        img.style.opacity = '1';
+                    }
+                });
+            });
+    </script>
+</body>
+
+</html>
